@@ -19,5 +19,17 @@ namespace Students.Controllers
             };
             return View(students);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Student students)
+        {
+            return View();
+        }
     }
 }
