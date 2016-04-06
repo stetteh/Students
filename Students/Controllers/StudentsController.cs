@@ -12,12 +12,16 @@ namespace Students.Controllers
         // GET: Students
         public ActionResult Index()
         {
-            List<Student> students = new List<Student>()
-            {
-                new Student(1, "seth", "quaye", "male", 30),
-                new Student(2, "zach", "ballard", "male", 26),
-            };
-            return View(students);
+            //List<Student> students = new List<Student>()
+            //{
+            //    new Student(1, "seth", "quaye", "male", 30),
+            //    new Student(2, "zach", "ballard", "male", 26),
+            //};
+
+            List<Student> currentStudents;
+            currentStudents = (List<Student>) Session["students"] ?? new List<Student>();
+
+            return View(currentStudents);
         }
 
         [HttpGet]
@@ -27,9 +31,25 @@ namespace Students.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Student students)
+        public ActionResult Create(Student newStudent)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var currentStudents = (List<Student>) Session["students"];
+                if (currentStudents == null)
+                {
+                    currentStudents = new List<Student>();
+                }
+                currentStudents.Add(newStudent);
+
+                Session["students"] = currentStudents;
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

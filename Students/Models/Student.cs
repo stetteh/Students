@@ -13,9 +13,9 @@ namespace Students.Models
         public string Gender { get; set; }
         public int Age { get; set; }
 
-        //public Student()
-        //{
-        //}
+        public Student()
+        {
+        }
 
         public Student(int id, string firstname, string lastname, string gender, int age)
         {
