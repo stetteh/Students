@@ -17,13 +17,13 @@ namespace Students.Controllers
             {
                 string name = Request.Cookies["name"].Value;
 
-                return View(name);
-
+                ViewBag.Name = name;
             }
             
             return View();
         }
 
+        [HttpPost]
         public ActionResult Hello(User newUser)
         {
             HttpCookie aCookie = new HttpCookie("name");

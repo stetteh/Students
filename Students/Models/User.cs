@@ -8,7 +8,8 @@ namespace Students.Models
 {
     public class User
     {
-        [Required]
+        [Required(ErrorMessage = "Please enter your name.")]
+        [Display(Name="What is your name?")]
         public string Name { get; set; }
     }
 }

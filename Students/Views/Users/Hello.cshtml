@@ -4,13 +4,14 @@
     ViewBag.Title = "Hello";
 }
 
-<h2>Hello Enter Cookie Name</h2>
+<h2>Hello @ViewBag.Name. Enter Cookie Name</h2>
 
 @using (Html.BeginForm())
 {
     <div class="form-group">
-        <label for="Name">Name</label>
-        <input name="Name" type="text" class="form-control" placeholder="Cookie Name">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new {@class = "form-control", placeholder = "Cookie Name"})
+        @Html.ValidationMessageFor(x=>x.Name, "", new { @class="text-danger"})
     </div>
 
     <p>
@@ -18,3 +19,6 @@
     </p>
 }
 
+@section scripts{
+  @Scripts.Render("~/bundles/jqueryval")   
+}
