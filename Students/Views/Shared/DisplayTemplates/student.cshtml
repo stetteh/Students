@@ -1,0 +1,21 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@model Students.Models.Student
+@{
+    ViewBag.Title = "studentview";
+}
+<br/>
+<br />
+<div style="border: 2px solid blue">
+    <h2>Student: @Model.FirstName @Model.LastName</h2>
+    <hr/>
+    @if (Model.Age > 28)
+    {
+        <h2>Age: <span style="color: #ff0000;">@Model.Age</span></h2>
+    }
+    else
+    {
+        <h2>Age: @Model.Age</h2>
+    }
+    <h2>Gender: @Model.Gender</h2>
+    <br/>
+</div>

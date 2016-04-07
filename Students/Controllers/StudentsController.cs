@@ -12,16 +12,16 @@ namespace Students.Controllers
         // GET: Students
         public ActionResult Index()
         {
-            //List<Student> students = new List<Student>()
-            //{
-            //    new Student(1, "seth", "quaye", "male", 30),
-            //    new Student(2, "zach", "ballard", "male", 26),
-            //};
+            List<Student> students = new List<Student>()
+            {
+                new Student(1, "seth", "quaye", "male", 30),
+                new Student(2, "zach", "ballard", "male", 26),
+            };
 
             List<Student> currentStudents;
             currentStudents = (List<Student>) Session["students"] ?? new List<Student>();
 
-            return View(currentStudents);
+            return View(students);
         }
 
         [HttpGet]

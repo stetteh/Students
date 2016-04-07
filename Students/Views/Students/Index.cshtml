@@ -5,11 +5,11 @@
 }
 
 <h2>List of Students</h2>
-
-
-<div class="row">
-    @foreach (var t in Model)
-    {
-        <li>@t.Id, @t.FirstName, @t.LastName, @t.Gender, @t.Age</li>
+   @foreach (var item in Model)
+   {
+       @Html.DisplayFor(modelItem => item)
     }
-</div>
+
+<p>
+    @Html.ActionLink("Create New Student", "Create")
+</p>`
