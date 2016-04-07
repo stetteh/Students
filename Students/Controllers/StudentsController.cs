@@ -52,7 +52,16 @@ namespace Students.Controllers
             }
         }
 
-        public ActionResult Edit()
+        //GET EDIT
+        public ActionResult Edit(int id)
+        {
+            List<Student> students = new List<Student>();
+            var std = students.FirstOrDefault(s => s.Id == s.Id);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Student student)
         {
             return View();
         }
